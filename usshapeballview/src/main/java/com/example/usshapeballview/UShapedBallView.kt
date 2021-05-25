@@ -187,4 +187,27 @@ class UShapedBallView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : UShapedBallView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val usb : UShapedBall = UShapedBall(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            usb.draw(canvas, paint)
+            animator.animate {
+                usb.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            usb.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
