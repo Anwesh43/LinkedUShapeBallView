@@ -212,4 +212,13 @@ class UShapedBallView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : UShapedBallView {
+            val view : UShapedBallView = UShapedBallView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
