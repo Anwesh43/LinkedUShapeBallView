@@ -1,0 +1,3 @@
+include ':usshapeballview'
+include ':app'
+rootProject.name = "LinkedUShapeBallView"
