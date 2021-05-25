@@ -45,7 +45,7 @@ fun Canvas.drawUShapedBall(scale : Float, w : Float, h : Float, paint : Paint) {
     save()
     rotate(rot * sf3)
     paint.style = Paint.Style.FILL
-    drawCircle(size - r, -r - h / 2 + (h / 2) * (sf2 + sf4), r, paint)
+    drawCircle(size - r - paint.strokeWidth / 2, -r - h / 2 + (h / 2) * (sf2 + sf4), r, paint)
     restore()
     paint.style = Paint.Style.STROKE
     drawArc(RectF(-size, -size, size, size), 0f, rot * sf1, false, paint)
